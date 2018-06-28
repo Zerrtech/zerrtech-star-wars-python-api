@@ -12,6 +12,7 @@ class Hero(models.Model):
     imageUrl = models.CharField(max_length=128)
     affiliations = models.ManyToManyField(Affiliation)
 
+
     def __str__(self):
         return self.name
 

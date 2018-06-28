@@ -15,14 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
 from starwars.apples.views import ListApples
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from starwars.models.hero.view import HeroViewSet
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register('heroes', HeroViewSet, )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apples/', ListApples.as_view()),
-    path('heroes/', HeroViewSet.as_view({ 'get': 'list' })),
+    url(r'^api/', include(router.urls))
 ]
 
 urlpatterns += staticfiles_urlpatterns()
