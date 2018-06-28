@@ -8,6 +8,6 @@ class HeroViewSet(mixins.CreateModelMixin,
                   mixins.UpdateModelMixin,
                   viewsets.GenericViewSet):
 
-    #authentication_classes = (Auth0Authentication,)
+    authentication_classes = (Auth0Authentication,)
     queryset = Hero.objects.all()
     serializer_class = HeroSerializer
