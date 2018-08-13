@@ -30,5 +30,5 @@ coverage.*
 !.travis.yml
 !.isort.cfg
 
-.idea
-__pycache__
+__pycache__/
+.idea/
